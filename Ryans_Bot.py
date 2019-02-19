@@ -11,19 +11,6 @@ import Token
 #sub functions of the bot
 
 
-# Work with Python 3.6
-
-#external libs
-import discord
-import random
-from discord.ext.commands import Bot
-
-#token to make the bot work
-import Token
-
-#sub functions of the bot
-
-
 
 BOT_PREFIX = ("^", "@")
 TOKEN = Token.SecretToken()
@@ -213,6 +200,18 @@ async def todays_weather(context):
     ]
     await client.say(random.choice(possible_responses) + ", " + context.message.author.mention)
 
+"""
+#roles functions
+#add and remove roles as per user command
+@client.command(name='ChangeRole'
+                description="Add or remove a role by using ChangeRole followed by the name of the role. If you have the role it will be removed, if you dont it will be added.
+                brief="Add or remove your game roles"
+                aliases=['AddRole', 'RemoveRole']
+                pass_contaxt=True)
+"""
+
+async def ChangeRole(context):
+    print('Recieved Command: ChangeRole')
 
 #statement-reply functions
 @client.command(name='hello')
