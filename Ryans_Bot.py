@@ -7,6 +7,7 @@ from discord.ext.commands import Bot
 
 #token to make the bot work
 import Token
+import Jokes
 
 #sub functions of the bot
 
@@ -47,23 +48,10 @@ async def todays_weather(context):
                 brief="You wanna hear a joke?",
                 pass_context=True)
 
-async def todays_weather(context):
+async def the_jokes(context):
     print('Recieved Command: Joke')
-    possible_responses = [
-        'Q: A:',
-        'Q: What do you call a dog in the summer? A: A hotdog!',
-        'I bought some shoes from a drug dealer. I don’t know what he laced them with, but I was tripping all day!',
-        'Q: Why did the golfer change his pants? A: Because he got a hole in one!',
-        'Q: Does anyone need an ark? A: I Noah guy!',
-        'Q: How do you make holy water? A: You boil the hell out of it!',
-        'Q: What do you get when you cross a snowman with a vampire? A: Frostbite!',
-        'Q: Why don’t they play poker in the jungle? A: Too many cheetahs!',
-        'Q: What time did the man go to the dentist? A: 2:30!',
-        'Q: How many tickles does it take to tickle an octopus? A: Tentacles!',
-        'Q: How does Moses make his tea? A: Hebrews it!',
-        'Q: Want to hear a joke about a piece of paper? A: Never mind… it’s tearable.',
-    ]
-    await client.say(random.choice(possible_responses))
+    Joke = Jokes.JokeStore()
+    await client.say(Joke)
 
 
 
