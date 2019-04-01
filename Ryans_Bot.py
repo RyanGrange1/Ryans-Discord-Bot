@@ -8,6 +8,7 @@ from discord.ext.commands import Bot
 #token to make the bot work
 import Token
 import Jokes
+import usernameHash
 
 #sub functions of the bot
 
@@ -18,7 +19,17 @@ TOKEN = Token.SecretToken()
 
 client = Bot(command_prefix = BOT_PREFIX)
 
+#usernameHash function
 
+@client.command(name='hashUsername',
+                description="Hash usernames because Dinkie's too lazy to do it by hand",
+                brief="Hash usernames",
+                pass_context=True)
+
+async def hashUsernameFunction(context):
+    print("Hashing username")
+    for i in context.message.server.members:
+        i.nick = usernameHash.hashName(i.name)
 
 #weather function
 @client.command(name='Weather',
@@ -142,7 +153,7 @@ async def kys(context):
     await client.say('Thats very rude ' + context.message.author.mention + ', why dont you take your own advice if you cant act in a polite manour')
 
 
-   
+
 @client.event
 async def on_ready():
     print('Logged in as')
@@ -219,7 +230,7 @@ async def kys(context):
     await client.say('Thats very rude ' + context.message.author.mention + ', why dont you take your own advice if you cant act in a polite manour')
 
 
-   
+
 @client.event
 async def on_ready():
     print('Logged in as')
@@ -228,11 +239,3 @@ async def on_ready():
     print('------')
 
 client.run(TOKEN)
-
-
-
-
-
-
-
-
